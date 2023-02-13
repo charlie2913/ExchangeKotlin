@@ -1,0 +1,21 @@
+<configuration>
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!-- define el nombre del archivo con el contador -->
+            <fileNamePattern>/C:/Users/Carlos Camargo/Desktop/Universidad/Semestre 9/Arquitectura de Software/Tareas/Pruebas/logskt/logs.%d{yyyy-MM-dd}.%i.txt</fileNamePattern>
+            <!-- define el tamaño máximo en MB -->
+            <maxFileSize>1MB</maxFileSize>
+        </rollingPolicy>
+        <encoder>
+            <pattern>
+                %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <root level="debug">
+        <appender-ref ref="FILE" />
+    </root>
+
+</configuration>
