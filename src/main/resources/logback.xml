@@ -1,9 +1,12 @@
 <configuration>
-
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+    <springProperty scope="context" name="application" source="spring.application.name" defaultValue="micro-service"/>
+    <springProperty scope="context" name="port" source="server.port" defaultValue="0000"/>
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <!-- define el nombre del archivo con el contador -->
-            <fileNamePattern>/C:/Users/Carlos Camargo/Desktop/Universidad/Semestre 9/Arquitectura de Software/Tareas/Pruebas/logskt/logs.%d{yyyy-MM-dd}.%i.txt</fileNamePattern>
+            <fileNamePattern>/Users/Carlos Camargo/Desktop/Universidad/Semestre 9/Arquitectura de Software/Tareas/Pruebas/logskt/logs.%d{yyyy-MM-dd}.%i.txt</fileNamePattern>
             <!-- define el tamaño máximo en MB -->
             <maxFileSize>1MB</maxFileSize>
         </rollingPolicy>
@@ -13,9 +16,9 @@
             </pattern>
         </encoder>
     </appender>
-
-    <root level="debug">
+    <root level="info">
         <appender-ref ref="FILE" />
+        <appender-ref ref="CONSOLE" />
     </root>
 
 </configuration>

@@ -1,0 +1,26 @@
+services:
+  postgres:
+    image: postgres
+    mem_limit: 512m
+    ports:
+      - "5431:5432"
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: postgres
+    volumes:
+      - C:\Users\Carlos Camargo\Desktop\Universidad\Semestre 9\Arquitectura de Software\Tareas\Varios_logs\logskt:/var/lib/postgresql/data
+  currency-converter:
+    image: demo:2.0.0
+    restart: always
+    mem_limit: 512m
+    ports:
+      - "8008:8008"
+    environment:
+      URL: ${POSTGRES_URL}
+      USER_NAME: ${POSTGRES_USER}
+      PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - C:\Users\Carlos Camargo\Desktop\Universidad\Semestre 9\Arquitectura de Software\Tareas\Varios_logs\logsSpring:/Users/Carlos Camargo/Desktop/Universidad/Semestre 9/Arquitectura de Software/Tareas/logsxd
+    depends_on:
+      - postgres
