@@ -1,10 +1,13 @@
 package software.architecture.demo.dto
 
-class RequestDto {
-    var from: String? = null
-    var to: String? = null
-    var amount: String? = null
+import java.math.BigDecimal
 
+data class RequestDto(
+    var from: String?,
+    var to: String?,
+    var amount: BigDecimal?
+) {
+    constructor(): this(null, null, null)
     override fun toString(): String {
         return "RequestDto{" +
                 "from='" + from + '\'' +

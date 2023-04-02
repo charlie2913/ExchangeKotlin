@@ -17,4 +17,14 @@ class CurrencyDao (
 ) {
     constructor() : this("", "", BigDecimal.ZERO, BigDecimal.ZERO, Date()) {
     }
+    override fun toString(): String {
+        return "CurrencyDao{" +
+                "currencyFrom='" + currencyFrom + '\'' +
+                ", currencyTo='" + currencyTo + '\'' +
+                ", amount=" + amount +
+                ", result=" + result +
+                ", date=" + date +
+                ", id=" + id +
+                '}'
+    }
 }

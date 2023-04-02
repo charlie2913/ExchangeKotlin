@@ -10,7 +10,7 @@ import software.architecture.demo.dto.ResponseDto
 class Controller {
     @ExceptionHandler(IllegalArgumentException::class)
     fun zeroException(e: IllegalArgumentException): ResponseEntity<ResponseDto<*>> {
-        val responseDto: ResponseDto<*> = ResponseDto<Any?>(null, e.message, false)
+        val responseDto: ResponseDto<*> = ResponseDto<Any?>(false, 0, e.message.toString() )
         return ResponseEntity.badRequest().body(responseDto)
     }
 }

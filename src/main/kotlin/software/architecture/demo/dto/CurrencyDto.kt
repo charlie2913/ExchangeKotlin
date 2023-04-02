@@ -3,29 +3,17 @@ package software.architecture.demo.dto
 import java.math.BigDecimal
 
 
-class CurrencyDto {
-    var isSuccess = false
-    var query: RequestDto? = null
-    var info: DataDto? = null
-    var date: String? = null
-    var result: BigDecimal? = null
-
-    constructor() {}
-    constructor(success: Boolean, query: RequestDto?, info: DataDto?, date: String?, result: BigDecimal?) {
-        isSuccess = success
-        this.query = query
-        this.info = info
-        this.date = date
-        this.result = result
-    }
+data class CurrencyDto(
+    var success: Boolean,
+    var query: RequestDto?,
+    var info: DataDto?,
+    var date: String?,
+    var result: BigDecimal?
+){
+    constructor() : this(false,null,null,null,null)
+    constructor(query: RequestDto?, result: BigDecimal?): this()
 
     override fun toString(): String {
-        return "CurrencyDto{" +
-                "success=" + isSuccess +
-                ", query=" + query +
-                ", info=" + info +
-                ", date='" + date + '\'' +
-                ", result=" + result +
-                '}'
+        return "CurrencyDto(success=$success, query=$query, info=$info, date='$date', result=$result)"
     }
 }
